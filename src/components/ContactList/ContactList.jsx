@@ -31,7 +31,7 @@ export function ContactList() {
     <ul className={css.list}>
       {visibilityContacts.map(contact => (
         <li className={css.item} key={contact.id}>
-            {contact.name}: {contact.number}
+            {contact.name}: {contact.phone}
             <button className={css.btn}
               type="button" id={contact.id} onClick={onDeleteContact}>
                 Delete

@@ -23,10 +23,8 @@ const ContactForm = () => {
     }
 
     dispatch(addContact({ name, phone }));
+      return true;
 
-    alert(`${name} is added to the contact list!`);
-
-    form.reset();
   }
    
   return (
