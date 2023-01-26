@@ -23,7 +23,7 @@ const ContactForm = () => {
     }
 
     dispatch(addContact({ name, phone }));
-      return true;
+      form.reset();
 
   }
    
