@@ -2,7 +2,7 @@ import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/operations';
 import { getContacts} from '../../redux/selectors';
-
+import { toast } from 'react-toastify';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -19,10 +19,11 @@ const ContactForm = () => {
         contact => contact.name.toLowerCase() === name.toLowerCase()
       )
     ) {
-      return alert(`${name} is alredy in contacts.`);
+      return toast.warn(`${name} is alredy in contacts.`);
     }
 
-    dispatch(addContact({ name, phone }));
+      dispatch(addContact({ name, phone }));
+      toast.success(`${name} is added to the contact list!`);
       form.reset();
 
   }

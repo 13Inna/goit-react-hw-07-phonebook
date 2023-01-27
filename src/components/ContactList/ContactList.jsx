@@ -2,16 +2,17 @@ import css from './ContactList.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts, getFilter } from '../../redux/selectors';
 import { deleteContact } from '../../redux/operations';
+import { toast } from 'react-toastify';
 
 export function ContactList() {
   const contacts = useSelector(getContacts);
-  const filterValue = useSelector(getFilter);
+  const filterValue = useSelector(getFilter).toLowerCase();;
 
   const dispatch = useDispatch();
   
   const onDeleteContact = evt => {
     dispatch(deleteContact(evt.target.id));
-    alert(`This contact is delited from your phonebook!`);
+    toast.info(`This contact is delited from your phonebook!`);
 };
 
 
